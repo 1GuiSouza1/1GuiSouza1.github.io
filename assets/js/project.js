@@ -6,23 +6,22 @@
   const id = params.get('id');
   const project = data.projects.find((item) => item.id === id);
 
-  /*
-   * Descobre a raiz do site dinamicamente.
-   * Se estiver no GitHub Pages (ex: /meu-portfolio/projeto.html), extrai "/meu-portfolio/".
-   * Se estiver local ou na raiz (ex: /projeto.html ou /), mantém apenas "/".
-   */
-  const getBasePath = () => {
-    const path = window.location.pathname;
-    // Captura a primeira pasta se o site não estiver na raiz (comum em subpastas de hospedagem)
-    const match = path.match(/^([^/]*)\/?/);
-    const subfolder = match && match[1] ? `/\${match[1]}` : '';
-    
-    // Se o arquivo atual termina com .html e há pastas antes, ou se estamos no GitHub Pages
-    if (path.includes('/') && path.split('/').length > 2) {
-      return path.substring(0, path.lastIndexOf('/')) + '/';
-    }
-    return subfolder ? `\${subfolder}/` : '/';
-  };
+/*
+ * Descobre a raiz do site dinamicamente.
+ * Funciona na raiz do domínio e em subpastas, como no GitHub Pages.
+ */
+const getBasePath = () => {
+  const path = window.location.pathname;
+  const firstFolder = path.split('/').filter(Boolean)[0];
+
+  // GitHub Pages: /nome-do-repositorio/arquivo.html
+  if (window.location.hostname.endsWith('github.io') && firstFolder) {
+    return `/${firstFolder}/`;
+  }
+
+  // Hospedagem na raiz do domínio
+  return '/';
+};
 
   const basePath = getBasePath();
 
@@ -34,38 +33,38 @@
     'up-barber-front': {
       heading: 'Telas do aplicativo',
       items: [
-        { type: 'image', src: `\${basePath}assets/img/projetos/up-barber/up-barber-01.png`, alt: 'Tela 1 do aplicativo UP Barber' },
-        { type: 'image', src: `\${basePath}assets/img/projetos/up-barber/up-barber-02.png`, alt: 'Tela 2 do aplicativo UP Barber' },
-        { type: 'image', src: `\${basePath}assets/img/projetos/up-barber/up-barber-03.png`, alt: 'Tela 3 do aplicativo UP Barber' },
-        { type: 'image', src: `\${basePath}assets/img/projetos/up-barber/up-barber-04.png`, alt: 'Tela 4 do aplicativo UP Barber' }
+        { type: 'image', src: `${basePath}assets/img/projetos/up-barber/up-barber-01.png`, alt: 'Tela 1 do aplicativo UP Barber' },
+        { type: 'image', src: `${basePath}assets/img/projetos/up-barber/up-barber-02.png`, alt: 'Tela 2 do aplicativo UP Barber' },
+        { type: 'image', src: `${basePath}assets/img/projetos/up-barber/up-barber-03.png`, alt: 'Tela 3 do aplicativo UP Barber' },
+        { type: 'image', src: `${basePath}assets/img/projetos/up-barber/up-barber-04.png`, alt: 'Tela 4 do aplicativo UP Barber' }
       ]
     },
     'catalogo-brinquedos': {
       heading: 'Telas do sistema',
       items: [
-        { type: 'image', src: `\${basePath}assets/img/projetos/catalogo-brinquedos/catalogo-brinquedos-01.png`, alt: 'Tela 1 do Catálogo de Brinquedos' },
-        { type: 'image', src: `\${basePath}assets/img/projetos/catalogo-brinquedos/catalogo-brinquedos-02.png`, alt: 'Tela 2 do Catálogo de Brinquedos' },
-        { type: 'image', src: `\${basePath}assets/img/projetos/catalogo-brinquedos/catalogo-brinquedos-03.png`, alt: 'Tela 3 do Catálogo de Brinquedos' },
-        { type: 'image', src: `\${basePath}assets/img/projetos/catalogo-brinquedos/catalogo-brinquedos-04.png`, alt: 'Tela 4 do Catálogo de Brinquedos' }
+        { type: 'image', src: `${basePath}assets/img/projetos/catalogo-brinquedos/catalogo-brinquedos-01.png`, alt: 'Tela 1 do Catálogo de Brinquedos' },
+        { type: 'image', src: `${basePath}assets/img/projetos/catalogo-brinquedos/catalogo-brinquedos-02.png`, alt: 'Tela 2 do Catálogo de Brinquedos' },
+        { type: 'image', src: `${basePath}assets/img/projetos/catalogo-brinquedos/catalogo-brinquedos-03.png`, alt: 'Tela 3 do Catálogo de Brinquedos' },
+        { type: 'image', src: `${basePath}assets/img/projetos/catalogo-brinquedos/catalogo-brinquedos-04.png`, alt: 'Tela 4 do Catálogo de Brinquedos' }
       ]
     },
     'reserva-labs': {
       heading: 'Telas do sistema',
       items: [
-        { type: 'image', src: `\${basePath}assets/img/projetos/reserva-labs/reserva-labs-01.png`, alt: 'Tela 1 do Reserva Labs' },
-        { type: 'image', src: `\${basePath}assets/img/projetos/reserva-labs/reserva-labs-02.png`, alt: 'Tela 2 do Reserva Labs' },
-        { type: 'image', src: `\${basePath}assets/img/projetos/reserva-labs/reserva-labs-03.png`, alt: 'Tela 3 do Reserva Labs' },
-        { type: 'image', src: `\${basePath}assets/img/projetos/reserva-labs/reserva-labs-04.png`, alt: 'Tela 4 do Reserva Labs' }
+        { type: 'image', src: `${basePath}assets/img/projetos/reserva-labs/reserva-labs-01.png`, alt: 'Tela 1 do Reserva Labs' },
+        { type: 'image', src: `${basePath}assets/img/projetos/reserva-labs/reserva-labs-02.png`, alt: 'Tela 2 do Reserva Labs' },
+        { type: 'image', src: `${basePath}assets/img/projetos/reserva-labs/reserva-labs-03.png`, alt: 'Tela 3 do Reserva Labs' },
+        { type: 'image', src: `${basePath}assets/img/projetos/reserva-labs/reserva-labs-04.png`, alt: 'Tela 4 do Reserva Labs' }
       ]
     },
     'dri-atelie': {
       heading: 'Telas do sistema',
       items: [
-        { type: 'image', src: `\${basePath}assets/img/projetos/dri-atelie/dri-atelie-01.png`, alt: 'Tela 1 do dri atelie' },
-        { type: 'image', src: `\${basePath}assets/img/projetos/dri-atelie/dri-atelie-02.png`, alt: 'Tela 2 do dri atelie' },
-        { type: 'image', src: `\${basePath}assets/img/projetos/dri-atelie/dri-atelie-03.png`, alt: 'Tela 3 do dri atelie' },
-        { type: 'image', src: `\${basePath}assets/img/projetos/dri-atelie/dri-atelie-04.png`, alt: 'Tela 4 do dri atelie' },
-        { type: 'image', src: `\${basePath}assets/img/projetos/dri-atelie/dri-atelie-05.png`, alt: 'Tela 5 do dri atelie' }
+        { type: 'image', src: `${basePath}assets/img/projetos/dri-atelie/dri-atelie-01.png`, alt: 'Tela 1 do dri atelie' },
+        { type: 'image', src: `${basePath}assets/img/projetos/dri-atelie/dri-atelie-02.png`, alt: 'Tela 2 do dri atelie' },
+        { type: 'image', src: `${basePath}assets/img/projetos/dri-atelie/dri-atelie-03.png`, alt: 'Tela 3 do dri atelie' },
+        { type: 'image', src: `${basePath}assets/img/projetos/dri-atelie/dri-atelie-04.png`, alt: 'Tela 4 do dri atelie' },
+        { type: 'image', src: `${basePath}assets/img/projetos/dri-atelie/dri-atelie-05.png`, alt: 'Tela 5 do dri atelie' }
       ]
     },
   };
