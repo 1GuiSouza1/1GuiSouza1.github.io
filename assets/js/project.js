@@ -15,28 +15,28 @@
     'up-barber-front': {
       heading: 'Telas do aplicativo',
       items: [
-        { type: 'image', src: 'assets/img/projetos/up-barber/up-barber-01.png', alt: 'Tela 1 do aplicativo UP Barber' },
-        { type: 'image', src: 'assets/img/projetos/up-barber/up-barber-02.png', alt: 'Tela 2 do aplicativo UP Barber' },
-        { type: 'image', src: 'assets/img/projetos/up-barber/up-barber-03.png', alt: 'Tela 3 do aplicativo UP Barber' },
-        { type: 'image', src: 'assets/img/projetos/up-barber/up-barber-04.png', alt: 'Tela 4 do aplicativo UP Barber' }
+        { type: 'image', src: '/assets/img/projetos/up-barber/up-barber-01.png', alt: 'Tela 1 do aplicativo UP Barber' },
+        { type: 'image', src: '/assets/img/projetos/up-barber/up-barber-02.png', alt: 'Tela 2 do aplicativo UP Barber' },
+        { type: 'image', src: '/assets/img/projetos/up-barber/up-barber-03.png', alt: 'Tela 3 do aplicativo UP Barber' },
+        { type: 'image', src: '/assets/img/projetos/up-barber/up-barber-04.png', alt: 'Tela 4 do aplicativo UP Barber' }
       ]
     },
     'catalogo-brinquedos': {
       heading: 'Telas do sistema',
       items: [
-        { type: 'image', src: 'assets/img/projetos/catalogo-brinquedos/catalogo-brinquedos-01.png', alt: 'Tela 1 do Catálogo de Brinquedos' },
-        { type: 'image', src: 'assets/img/projetos/catalogo-brinquedos/catalogo-brinquedos-02.png', alt: 'Tela 2 do Catálogo de Brinquedos' },
-        { type: 'image', src: 'assets/img/projetos/catalogo-brinquedos/catalogo-brinquedos-03.png', alt: 'Tela 3 do Catálogo de Brinquedos' },
-        { type: 'image', src: 'assets/img/projetos/catalogo-brinquedos/catalogo-brinquedos-04.png', alt: 'Tela 4 do Catálogo de Brinquedos' }
+        { type: 'image', src: '/assets/img/projetos/catalogo-brinquedos/catalogo-brinquedos-01.png', alt: 'Tela 1 do Catálogo de Brinquedos' },
+        { type: 'image', src: '/assets/img/projetos/catalogo-brinquedos/catalogo-brinquedos-02.png', alt: 'Tela 2 do Catálogo de Brinquedos' },
+        { type: 'image', src: '/assets/img/projetos/catalogo-brinquedos/catalogo-brinquedos-03.png', alt: 'Tela 3 do Catálogo de Brinquedos' },
+        { type: 'image', src: '/assets/img/projetos/catalogo-brinquedos/catalogo-brinquedos-04.png', alt: 'Tela 4 do Catálogo de Brinquedos' }
       ]
     },
     'reserva-labs': {
       heading: 'Telas do sistema',
       items: [
-        { type: 'image', src: 'assets/img/projetos/reserva-labs/reserva-labs-01.png', alt: 'Tela 1 do Reserva Labs' },
-        { type: 'image', src: 'assets/img/projetos/reserva-labs/reserva-labs-02.png', alt: 'Tela 2 do Reserva Labs' },
-        { type: 'image', src: 'assets/img/projetos/reserva-labs/reserva-labs-03.png', alt: 'Tela 3 do Reserva Labs' },
-        { type: 'image', src: 'assets/img/projetos/reserva-labs/reserva-labs-04.png', alt: 'Tela 4 do Reserva Labs' }
+        { type: 'image', src: '/assets/img/projetos/reserva-labs/reserva-labs-01.png', alt: 'Tela 1 do Reserva Labs' },
+        { type: 'image', src: '/assets/img/projetos/reserva-labs/reserva-labs-02.png', alt: 'Tela 2 do Reserva Labs' },
+        { type: 'image', src: '/assets/img/projetos/reserva-labs/reserva-labs-03.png', alt: 'Tela 3 do Reserva Labs' },
+        { type: 'image', src: '/assets/img/projetos/reserva-labs/reserva-labs-04.png', alt: 'Tela 4 do Reserva Labs' }
       ]
     },
     'pilates': {
@@ -44,7 +44,7 @@
       items: [
         {
           type: 'video',
-          src: 'assets/video/projetos/pilates/video-pilates.mp4',
+          src: '/assets/video/projetos/pilates/video-pilates.mp4',
           alt: 'Vídeo de demonstração do sistema de Pilates'
         }
       ]
