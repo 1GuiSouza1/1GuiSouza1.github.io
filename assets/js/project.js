@@ -7,48 +7,57 @@
   const project = data.projects.find((item) => item.id === id);
 
   /*
+   * Descobre a raiz do site dinamicamente.
+   * Se estiver no GitHub Pages (ex: /meu-portfolio/projeto.html), extrai "/meu-portfolio/".
+   * Se estiver local ou na raiz (ex: /projeto.html ou /), mantém apenas "/".
+   */
+  const getBasePath = () => {
+    const path = window.location.pathname;
+    // Captura a primeira pasta se o site não estiver na raiz (comum em subpastas de hospedagem)
+    const match = path.match(/^([^/]*)\/?/);
+    const subfolder = match && match[1] ? `/\${match[1]}` : '';
+    
+    // Se o arquivo atual termina com .html e há pastas antes, ou se estamos no GitHub Pages
+    if (path.includes('/') && path.split('/').length > 2) {
+      return path.substring(0, path.lastIndexOf('/')) + '/';
+    }
+    return subfolder ? `\${subfolder}/` : '/';
+  };
+
+  const basePath = getBasePath();
+
+  /*
    * Galerias por projeto.
-   * Os caminhos são declarados diretamente para corresponder aos nomes reais
-   * dos arquivos dentro das pastas de imagens e vídeos.
+   * Os caminhos usam a constante 'basePath' para garantir o funcionamento em qualquer servidor.
    */
   const projectGalleries = {
     'up-barber-front': {
       heading: 'Telas do aplicativo',
       items: [
-        { type: 'image', src: '/assets/img/projetos/up-barber/up-barber-01.png', alt: 'Tela 1 do aplicativo UP Barber' },
-        { type: 'image', src: '/assets/img/projetos/up-barber/up-barber-02.png', alt: 'Tela 2 do aplicativo UP Barber' },
-        { type: 'image', src: '/assets/img/projetos/up-barber/up-barber-03.png', alt: 'Tela 3 do aplicativo UP Barber' },
-        { type: 'image', src: '/assets/img/projetos/up-barber/up-barber-04.png', alt: 'Tela 4 do aplicativo UP Barber' }
+        { type: 'image', src: `\${basePath}assets/img/projetos/up-barber/up-barber-01.png`, alt: 'Tela 1 do aplicativo UP Barber' },
+        { type: 'image', src: `\${basePath}assets/img/projetos/up-barber/up-barber-02.png`, alt: 'Tela 2 do aplicativo UP Barber' },
+        { type: 'image', src: `\${basePath}assets/img/projetos/up-barber/up-barber-03.png`, alt: 'Tela 3 do aplicativo UP Barber' },
+        { type: 'image', src: `\${basePath}assets/img/projetos/up-barber/up-barber-04.png`, alt: 'Tela 4 do aplicativo UP Barber' }
       ]
     },
     'catalogo-brinquedos': {
       heading: 'Telas do sistema',
       items: [
-        { type: 'image', src: '/assets/img/projetos/catalogo-brinquedos/catalogo-brinquedos-01.png', alt: 'Tela 1 do Catálogo de Brinquedos' },
-        { type: 'image', src: '/assets/img/projetos/catalogo-brinquedos/catalogo-brinquedos-02.png', alt: 'Tela 2 do Catálogo de Brinquedos' },
-        { type: 'image', src: '/assets/img/projetos/catalogo-brinquedos/catalogo-brinquedos-03.png', alt: 'Tela 3 do Catálogo de Brinquedos' },
-        { type: 'image', src: '/assets/img/projetos/catalogo-brinquedos/catalogo-brinquedos-04.png', alt: 'Tela 4 do Catálogo de Brinquedos' }
+        { type: 'image', src: `\${basePath}assets/img/projetos/catalogo-brinquedos/catalogo-brinquedos-01.png`, alt: 'Tela 1 do Catálogo de Brinquedos' },
+        { type: 'image', src: `\${basePath}assets/img/projetos/catalogo-brinquedos/catalogo-brinquedos-02.png`, alt: 'Tela 2 do Catálogo de Brinquedos' },
+        { type: 'image', src: `\${basePath}assets/img/projetos/catalogo-brinquedos/catalogo-brinquedos-03.png`, alt: 'Tela 3 do Catálogo de Brinquedos' },
+        { type: 'image', src: `\${basePath}assets/img/projetos/catalogo-brinquedos/catalogo-brinquedos-04.png`, alt: 'Tela 4 do Catálogo de Brinquedos' }
       ]
     },
     'reserva-labs': {
       heading: 'Telas do sistema',
       items: [
-        { type: 'image', src: '/assets/img/projetos/reserva-labs/reserva-labs-01.png', alt: 'Tela 1 do Reserva Labs' },
-        { type: 'image', src: '/assets/img/projetos/reserva-labs/reserva-labs-02.png', alt: 'Tela 2 do Reserva Labs' },
-        { type: 'image', src: '/assets/img/projetos/reserva-labs/reserva-labs-03.png', alt: 'Tela 3 do Reserva Labs' },
-        { type: 'image', src: '/assets/img/projetos/reserva-labs/reserva-labs-04.png', alt: 'Tela 4 do Reserva Labs' }
+        { type: 'image', src: `\${basePath}assets/img/projetos/reserva-labs/reserva-labs-01.png`, alt: 'Tela 1 do Reserva Labs' },
+        { type: 'image', src: `\${basePath}assets/img/projetos/reserva-labs/reserva-labs-02.png`, alt: 'Tela 2 do Reserva Labs' },
+        { type: 'image', src: `\${basePath}assets/img/projetos/reserva-labs/reserva-labs-03.png`, alt: 'Tela 3 do Reserva Labs' },
+        { type: 'image', src: `\${basePath}assets/img/projetos/reserva-labs/reserva-labs-04.png`, alt: 'Tela 4 do Reserva Labs' }
       ]
     },
-    'pilates': {
-      heading: 'Demonstração em vídeo',
-      items: [
-        {
-          type: 'video',
-          src: '/assets/video/projetos/pilates/video-pilates.mp4',
-          alt: 'Vídeo de demonstração do sistema de Pilates'
-        }
-      ]
-    }
   };
 
   const content = document.getElementById('projectContent');
