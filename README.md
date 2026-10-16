@@ -1,8 +1,24 @@
 # Portfólio — Guilherme Souza Alves
 
-Portfólio pessoal responsivo construído com **HTML5, CSS3, JavaScript e Bootstrap 5**. O projeto foi organizado para ser simples de manter: o conteúdo dos seis projetos e a lista de tecnologias ficam centralizados em `assets/js/data.js`.
+Portfólio pessoal responsivo desenvolvido com **HTML5, CSS3, JavaScript e Bootstrap 5**. O site apresenta projetos de desenvolvimento web, desktop e mobile, com páginas de detalhes reutilizáveis e conteúdo centralizado para facilitar a manutenção.
 
-## Estrutura
+- **Site:** https://1guisouza1.github.io/
+- **Repositório:** https://github.com/1GuiSouza1/1GuiSouza1.github.io
+- **GitHub:** https://github.com/1GuiSouza1
+- **LinkedIn:** https://www.linkedin.com/in/guilhermesouza-dev/
+
+## Tecnologias e recursos
+
+- HTML5, CSS3 e JavaScript;
+- Bootstrap 5 e Bootstrap Icons;
+- Devicon para ícones de tecnologias;
+- Layout responsivo e tema visual escuro com detalhes em roxo;
+- Dados dos projetos centralizados em `assets/js/data.js`;
+- Página de detalhes reutilizável em `projeto.html`, identificada pelo parâmetro `id`;
+- Galerias opcionais por projeto, com carrossel do Bootstrap;
+- Verificação das mídias disponíveis: o carrossel mostra somente as imagens e os vídeos que já foram adicionados.
+
+## Estrutura do projeto
 
 ```text
 portfolio-guilherme/
@@ -14,7 +30,13 @@ portfolio-guilherme/
 │   ├── img/
 │   │   ├── favicon.svg
 │   │   ├── guilherme-hero.png
-│   │   └── guilherme-hero.webp
+│   │   ├── guilherme-hero.webp
+│   │   └── projetos/
+│   │       ├── up-barber/
+│   │       ├── dri-atelie/
+│   │       ├── reserva-labs/
+│   │       ├── catalogo-brinquedos/
+│   │       └── pilates/
 │   └── js/
 │       ├── data.js
 │       ├── main.js
@@ -22,50 +44,96 @@ portfolio-guilherme/
 └── README.md
 ```
 
-## Como abrir
+As pastas das galerias podem receber imagens e vídeos aos poucos. Os arquivos de mídia não estão incluídos neste pacote; adicione os arquivos com os nomes indicados abaixo.
 
-Abra `index.html` diretamente no navegador. Para testar em um servidor local, também é possível usar qualquer extensão de servidor estático do VS Code ou:
+## Como executar localmente
 
-```bash
-python -m http.server 8000
-```
+1. Baixe ou clone o repositório.
+2. Abra a pasta do projeto no VS Code.
+3. Execute a página por uma extensão de servidor local, como **Live Server**, ou use Python no terminal:
 
-Depois, acesse `http://localhost:8000`.
+   ```bash
+   python -m http.server 8000
+   ```
+
+4. Acesse `http://localhost:8000` no navegador.
+
+Usar um servidor local é recomendado para testar os caminhos dos arquivos e as páginas com parâmetros na URL.
 
 ## Projetos
 
-A home exibe exatamente seis projetos. Cada card direciona para uma página reutilizável:
+A página inicial apresenta sete projetos. Cada card abre `projeto.html` com um identificador próprio:
 
-```text
-projeto.html?id=pilates
-projeto.html?id=up-barber-front
-projeto.html?id=up-barber-back
-projeto.html?id=formulario-lab
-projeto.html?id=catalogo-brinquedos
-projeto.html?id=reserva-labs
-```
+| Projeto | URL de detalhes |
+|---|---|
+| Pilates | `projeto.html?id=pilates` |
+| Dri Ateliê | `projeto.html?id=dri-atelie` |
+| UP Barber — Front-end | `projeto.html?id=up-barber-front` |
+| UP Barber — Back-end | `projeto.html?id=up-barber-back` |
+| Formulário Lab | `projeto.html?id=formulario-lab` |
+| Catálogo de Brinquedos | `projeto.html?id=catalogo-brinquedos` |
+| Reserva Labs | `projeto.html?id=reserva-labs` |
 
-Para editar título, descrição, tecnologias, ícone, cor temática, participação ou link do GitHub, altere apenas o objeto correspondente em `assets/js/data.js`.
+Para alterar título, descrição, tecnologias, ícone, cor temática, participação ou link do GitHub, edite o objeto correspondente em `assets/js/data.js`.
 
-## Imagens dos projetos
+## Galerias de imagens e vídeo
 
-Não existe galeria de screenshots. Os cards e as páginas internas usam **ícones e composições gráficas em CSS** para representar o tema de cada projeto, deixando o foco nas informações e no código disponível no GitHub.
+As galerias são configuradas em `assets/js/project.js` e usam o carrossel do Bootstrap. Cada projeto pode ter sua própria pasta e quantidade de mídias. O carrossel verifica quais arquivos existem e ignora os que ainda não foram adicionados. No Pilates, o vídeo aparece primeiro e as imagens PNG podem ser incluídas depois; a reprodução não começa automaticamente e é pausada ao trocar de slide.
+
+### UP Barber — Front-end: 4 imagens
+
+Pasta: `assets/img/projetos/up-barber/`
+
+- `up-barber-01.png`
+- `up-barber-02.png`
+- `up-barber-03.png`
+- `up-barber-04.png`
+
+### Dri Ateliê: até 8 imagens
+
+Pasta: `assets/img/projetos/dri-atelie/`
+
+- `dri-atelie-01.png` até `dri-atelie-08.png`
+
+### Reserva Labs: até 8 imagens
+
+Pasta: `assets/img/projetos/reserva-labs/`
+
+- `reserva-labs-01.png` até `reserva-labs-08.png`
+
+### Catálogo de Brinquedos: até 8 imagens
+
+Pasta: `assets/img/projetos/catalogo-brinquedos/`
+
+- `catalogo-brinquedos-01.png` até `catalogo-brinquedos-08.png`
+
+### Pilates: 1 vídeo e até 8 imagens
+
+Vídeo de demonstração (MP4): `assets/video/projetos/pilates/pilates-demo.mp4`
+
+Imagens PNG (quando você quiser adicioná-las): pasta `assets/img/projetos/pilates/`, com os nomes `pilates-01.png` até `pilates-08.png`.
+
+Para melhor compatibilidade, prefira vídeo MP4 codificado em H.264, com resolução e tamanho otimizados para a web. O player usa controles nativos, não reproduz automaticamente e carrega apenas os metadados antes de iniciar a reprodução.
+
+Use os nomes indicados e o formato PNG para que os caminhos funcionem sem alterações. Se utilizar JPG ou WebP, ajuste a extensão em `assets/js/project.js` para corresponder ao formato real dos arquivos; não basta renomear a extensão sem converter a imagem.
+
+Para adicionar outra galeria futuramente, inclua uma configuração em `projectGalleries` no `project.js`, usando como chave o mesmo `id` cadastrado em `assets/js/data.js`. A página `projeto.html` continua sendo reutilizada.
 
 ## Foto principal
 
-A composição de foto utilizada na seção inicial está em:
+A composição visual da seção inicial utiliza:
 
-- `assets/img/guilherme-hero.webp` — versão otimizada para o site.
-- `assets/img/guilherme-hero.png` — fallback com transparência.
+- `assets/img/guilherme-hero.webp` — versão otimizada para o site;
+- `assets/img/guilherme-hero.png` — alternativa com transparência.
 
 ## Dependências externas
 
-Carregadas por CDN:
+As seguintes bibliotecas são carregadas por CDN:
 
-- Bootstrap 5
-- Bootstrap Icons
-- Devicon
+- Bootstrap 5;
+- Bootstrap Icons;
+- Devicon.
 
-## Conteúdo
+## Sobre o conteúdo dos projetos
 
-Os textos profissionais foram escritos a partir do relatório de estágio fornecido e do perfil/repositórios públicos do GitHub. As descrições dos projetos seguem as informações presentes nos READMEs públicos. Quando um README não documenta uma contribuição individual específica, o site evita atribuí-la.
+As descrições são baseadas nos READMEs e nos arquivos disponíveis nos repositórios. No Dri Ateliê, o README público contém apenas o título do projeto; por isso, a descrição foi construída a partir das dependências e da configuração do `pom.xml`, sem presumir funcionalidades de negócio que não foi possível confirmar. Quando o repositório não documenta a contribuição individual de Guilherme, o portfólio evita atribuir responsabilidades específicas.

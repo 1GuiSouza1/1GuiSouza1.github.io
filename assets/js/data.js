@@ -10,6 +10,8 @@ window.PORTFOLIO_DATA = {
     { name: 'jQuery', icon: 'devicon-jquery-plain' },
     { name: 'C#', icon: 'devicon-csharp-plain' },
     { name: 'Spring', icon: 'devicon-spring-original' },
+    { name: 'Thymeleaf', icon: 'devicon-thymeleaf-plain' },
+    { name: 'Maven', icon: 'devicon-maven-plain' },
     { name: 'Vue.js', icon: 'devicon-vuejs-plain' },
     { name: 'React Native', icon: 'devicon-react-original' },
     { name: 'Flutter', icon: 'devicon-flutter-plain' },
@@ -48,6 +50,23 @@ window.PORTFOLIO_DATA = {
       github: 'https://github.com/1GuiSouza1/PI-Pilates-backend'
     },
     {
+      id: 'dri-atelie',
+      title: 'Dri Ateliê — Sistema Web',
+      shortTitle: 'Dri Ateliê',
+      category: 'Web Full Stack',
+      icon: 'bi bi-palette',
+      tone: 'magenta',
+      lead: 'Aplicação web para o Ateliê Dri, construída com Java 17 e Spring Boot, com interface Thymeleaf, persistência MySQL e suporte a endpoints REST.',
+      description: [
+        'Projeto web associado ao Ateliê Dri, desenvolvido com Java 17 e Spring Boot 3.5. A aplicação combina os recursos web do Spring com templates Thymeleaf para a camada de apresentação.',
+        'A estrutura técnica inclui Spring Data JPA e MySQL para persistência, validação de dados, suporte a endpoints REST e dependências para envio de e-mails. Como o README do repositório não detalha os fluxos funcionais, a descrição se concentra na arquitetura e nos recursos confirmados pelos arquivos de configuração.'
+      ],
+      highlights: ['Aplicação web com Java 17 e Spring Boot 3.5', 'Páginas renderizadas com Thymeleaf', 'Persistência relacional com Spring Data JPA e MySQL', 'Suporte a endpoints REST', 'Validação de dados', 'Dependência para envio de e-mails'],
+      contribution: [],
+      techs: ['Java 17', 'Spring Boot 3.5.6', 'Spring Web', 'Thymeleaf', 'Spring Data JPA', 'Spring Data REST', 'MySQL', 'Bean Validation', 'Spring Mail', 'Maven'],
+      github: 'https://github.com/TheHive-Atelie/DriAtelie'
+    },
+    {
       id: 'up-barber-front',
       title: 'UP Barber — App Mobile',
       shortTitle: 'UP Barber Front',
@@ -81,27 +100,27 @@ window.PORTFOLIO_DATA = {
       techs: ['Java 21', 'Spring Boot', 'Spring Data JPA', 'PostgreSQL', 'Docker', 'EFI Pay SDK'],
       github: 'https://github.com/1GuiSouza1/UP_Barber_Back'
     },
-    {
-      id: 'formulario-lab',
-      title: 'Formulário de Reserva — SALA',
-      shortTitle: 'Formulário Lab',
-      category: 'Front-end',
-      icon: 'bi bi-ui-checks',
-      tone: 'blueviolet',
-      lead: 'Prova de conceito de interface para reserva de laboratório, com formulário responsivo e interações em JavaScript.',
-      description: [
-        'Mini projeto criado para praticar interface visual e comportamento do usuário em uma tela de reserva de laboratório de um sistema fictício.',
-        'O foco é a experiência do formulário e a aplicação de conceitos básicos de front-end, sem dependência de backend ou banco de dados.'
-      ],
-      highlights: ['Formulário com diferentes tipos de campos', 'Feedback visual de campos obrigatórios', 'Contador de caracteres em tempo real', 'Interface responsiva', 'Validações leves em JavaScript'],
-      contribution: [
-        'Desenvolvimento completo do layout da tela de reservas.',
-        'Implementação das interações JavaScript, validações leves e contador de caracteres.',
-        'Design da interface com HTML e CSS criado do zero.'
-      ],
-      techs: ['HTML5', 'CSS3', 'JavaScript'],
-      github: 'https://github.com/1GuiSouza1/Formulario-Lab'
-    },
+    // {
+    //   id: 'formulario-lab',
+    //   title: 'Formulário de Reserva — SALA',
+    //   shortTitle: 'Formulário Lab',
+    //   category: 'Front-end',
+    //   icon: 'bi bi-ui-checks',
+    //   tone: 'blueviolet',
+    //   lead: 'Prova de conceito de interface para reserva de laboratório, com formulário responsivo e interações em JavaScript.',
+    //   description: [
+    //     'Mini projeto criado para praticar interface visual e comportamento do usuário em uma tela de reserva de laboratório de um sistema fictício.',
+    //     'O foco é a experiência do formulário e a aplicação de conceitos básicos de front-end, sem dependência de backend ou banco de dados.'
+    //   ],
+    //   highlights: ['Formulário com diferentes tipos de campos', 'Feedback visual de campos obrigatórios', 'Contador de caracteres em tempo real', 'Interface responsiva', 'Validações leves em JavaScript'],
+    //   contribution: [
+    //     'Desenvolvimento completo do layout da tela de reservas.',
+    //     'Implementação das interações JagitvaScript, validações leves e contador de caracteres.',
+    //     'Design da interface com HTML e CSS criado do zero.'
+    //   ],
+    //   techs: ['HTML5', 'CSS3', 'JavaScript'],
+    //   github: 'https://github.com/1GuiSouza1/Formulario-Lab'
+    // },
     {
       id: 'catalogo-brinquedos',
       title: 'Catálogo de Brinquedos',
