@@ -58,6 +58,16 @@
         { type: 'image', src: `\${basePath}assets/img/projetos/reserva-labs/reserva-labs-04.png`, alt: 'Tela 4 do Reserva Labs' }
       ]
     },
+    'dri-atelie': {
+      heading: 'Telas do sistema',
+      items: [
+        { type: 'image', src: `\${basePath}assets/img/projetos/dri-atelie/dri-atelie-01.png`, alt: 'Tela 1 do dri atelie' },
+        { type: 'image', src: `\${basePath}assets/img/projetos/dri-atelie/dri-atelie-02.png`, alt: 'Tela 2 do dri atelie' },
+        { type: 'image', src: `\${basePath}assets/img/projetos/dri-atelie/dri-atelie-03.png`, alt: 'Tela 3 do dri atelie' },
+        { type: 'image', src: `\${basePath}assets/img/projetos/dri-atelie/dri-atelie-04.png`, alt: 'Tela 4 do dri atelie' },
+        { type: 'image', src: `\${basePath}assets/img/projetos/dri-atelie/dri-atelie-05.png`, alt: 'Tela 5 do dri atelie' }
+      ]
+    },
   };
 
   const content = document.getElementById('projectContent');
