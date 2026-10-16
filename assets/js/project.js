@@ -11,14 +11,12 @@
    * O portfólio está publicado na raiz do domínio:
    * https://1guisouza1.github.io/
    *
-   * Por isso, os recursos começam em /assets/.
-   * Não usamos o nome do arquivo HTML para calcular a raiz.
+   * Os recursos são carregados a partir de /assets/.
    */
   const basePath = '/';
 
   /*
    * Galerias por projeto.
-   * Os caminhos usam basePath para localizar os arquivos.
    */
   const projectGalleries = {
     'up-barber-front': {
@@ -232,6 +230,19 @@
     `<i class="${project.icon}"></i>`;
 
   /*
+   * Converte os caminhos de mídia em URLs absolutas na raiz
+   * do domínio, evitando que projeto.html entre no caminho.
+   */
+  const resolveMediaUrl = (src) => {
+    const path = String(src).replace(/^\/+/, '');
+
+    return new URL(
+      path,
+      `${window.location.origin}/`
+    ).href;
+  };
+
+  /*
    * Verifica se um vídeo pode ser carregado.
    * Evita adicionar vídeos inexistentes à galeria.
    */
@@ -263,7 +274,7 @@
       { once: true }
     );
 
-    video.src = src;
+    video.src = resolveMediaUrl(src);
     video.load();
 
     window.setTimeout(() => finish(false), 4000);
@@ -273,25 +284,15 @@
    * Monta o carrossel de imagens e vídeos.
    */
   const renderGallery = (galleryConfig, gallery) => {
-    const galleryId = `projectGallery-${project.id}`;
+    const galleryId = 'projectMediaCarousel';
 
-    const videoCount = gallery.filter(
-      (media) => media.type === 'video'
-    ).length;
+    const mediaSummary = `${gallery.length} ${
+      gallery.length === 1 ? 'mídia' : 'mídias'
+    }`;
 
-    const imageCount = gallery.length - videoCount;
-
-    const mediaSummary = [
-      videoCount
-        ? `${videoCount} ${videoCount === 1 ? 'vídeo' : 'vídeos'}`
-        : '',
-      imageCount
-        ? `${imageCount} ${imageCount === 1 ? 'imagem' : 'imagens'}`
-        : ''
-    ]
-      .filter(Boolean)
-      .join(' · ');
-
+    /*
+     * Cria os indicadores de navegação.
+     */
     const indicators = gallery.length > 1
       ? gallery.map((media, index) => `
           <button
@@ -310,6 +311,9 @@
       ? `<div class="carousel-indicators">${indicators}</div>`
       : '';
 
+    /*
+     * Cria as setas de navegação.
+     */
     const controlsMarkup = gallery.length > 1
       ? `
           <button
@@ -338,8 +342,13 @@
         `
       : '';
 
+    /*
+     * Cria os slides.
+     * Todos os caminhos passam por resolveMediaUrl().
+     */
     const slides = gallery.map((media, index) => {
       const activeClass = index === 0 ? 'active' : '';
+      const mediaUrl = resolveMediaUrl(media.src);
 
       if (media.type === 'video') {
         return `
@@ -355,7 +364,7 @@
                 object-fit: contain;
                 background: rgba(8, 5, 13, .65);
               ">
-              <source src="${media.src}" type="video/mp4">
+              <source src="${mediaUrl}" type="video/mp4">
               Seu navegador não oferece suporte
               à reprodução de vídeo HTML5.
             </video>
@@ -366,7 +375,7 @@
       return `
         <div class="carousel-item ${activeClass}">
           <img
-            src="${media.src}"
+            src="${mediaUrl}"
             class="d-block w-100"
             alt="${media.alt}"
             ${index === 0
@@ -381,6 +390,9 @@
       `;
     }).join('');
 
+    /*
+     * Monta a estrutura completa da galeria.
+     */
     const galleryMarkup = `
       <section
         class="project-gallery mb-4"
@@ -426,6 +438,9 @@
       </section>
     `;
 
+    /*
+     * Insere a galeria na área de identidade do projeto.
+     */
     const identityPattern = identity.querySelector(
       '.project-identity-pattern'
     );
@@ -443,7 +458,7 @@
     }
 
     /*
-     * Interrompe o vídeo ao trocar de slide.
+     * Interrompe os vídeos ao trocar de slide.
      */
     const carouselElement = document.getElementById(galleryId);
 
@@ -470,7 +485,7 @@
     });
 
     /*
-     * Registra falhas de carregamento para facilitar o diagnóstico.
+     * Registra falhas de carregamento das imagens.
      */
     carouselElement.querySelectorAll('img').forEach((img) => {
       img.addEventListener('error', () => {
@@ -506,6 +521,9 @@
     }
   };
 
+  /*
+   * Exibe o conteúdo e inicializa a galeria.
+   */
   content.classList.remove('d-none');
 
   initializePage();
